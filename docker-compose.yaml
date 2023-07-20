@@ -1,0 +1,44 @@
+version: '3'
+services:
+  vc-app1:
+    container_name: app1
+    image: vc-app:0.0.1
+    restart: always
+    environment:
+      - SPIDER_NAME=vc01
+      - SLEEP=600
+      - TZ=Asia/Seoul
+    volumes:
+      - ./logs:/logs
+    networks:
+      - vc-net
+
+  vc-app2:
+    container_name: app2
+    image: vc-app:0.0.1
+    restart: always
+    environment:
+      - SPIDER_NAME=vc02
+      - SLEEP=600
+      - TZ=Asia/Seoul
+    volumes:
+      - ./logs:/logs
+    networks:
+      - vc-net
+
+  vc-app3:
+    container_name: app3
+    image: vc-app:0.0.1
+    restart: always
+    environment:
+      - SPIDER_NAME=vc03
+      - SLEEP=600
+      - TZ=Asia/Seoul
+    volumes:
+      - ./logs:/logs
+    networks:
+      - vc-net
+
+networks:
+  vc-net:
+    driver: bridge

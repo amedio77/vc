@@ -1,0 +1,1 @@
+docker build -t vc-app:0.0.2 .
